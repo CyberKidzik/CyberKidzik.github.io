@@ -1,34 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Каталог букетов</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Цветочный магазин</title>
 </head>
 <body>
-  <div class="container">
-    <div class="inner">
-      <div class="item" id="rose">
-        <img src="rose.png" alt="Rose Bouquet" class="img">
-        <button class="btn" onclick="selectBouquet('Rose Bouquet')">Выбрать</button>
-      </div>
-      <div class="item" id="spring">
-        <img src="spring.png" alt="Spring Bouquet" class="img">
-        <button class="btn" onclick="selectBouquet('Spring Bouquet')">Выбрать</button>
-      </div>
-      <!-- Add more bouquet items as needed -->
+    <div class="container">
+        <h1>Выберите букет</h1>
+        <div class="flower-card" data-flower-name="Прекрасный букет" data-price="2000" data-description="Красивый букет из роз">
+            <img src="rose.png" alt="Прекрасный букет">
+            <h2>Прекрасный букет - 2000 руб.</h2>
+            <button class="select-flower">Выбрать</button>
+        </div>
+        <!-- Дополнительные карточки цветов -->
     </div>
-  </div>
-  <div class="quantity-selector">
-    <button onclick="decreaseQuantity()">-</button>
-    <span id="quantity">1</span>
-    <button onclick="increaseQuantity()">+</button>
-  </div>
-  <div class="submit-button">
-    <button class="btn" id="sendDataButton" onclick="sendData()">Оформить заказ</button>
-  </div>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script src="app.js"></script>
+    
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
