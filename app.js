@@ -1,3 +1,4 @@
+// Инициализация объекта Telegram WebApp
 let tg = window.Telegram.WebApp;
 
 // Развернем WebApp в полный экран
@@ -31,23 +32,28 @@ const bouquets = [
     { id: "btn6", text: "Вы выбрали Зимний Букет!", item: "Зимний Букет" }
 ];
 
-// Добавление обработчиков событий для кнопок
 bouquets.forEach(bouquet => {
-    let btn = document.getElementById(bouquet.id);
-    btn.addEventListener("click", function() {
+    document.getElementById(bouquet.id).addEventListener("click", function() {
         updateMainButton(bouquet.text, bouquet.item);
     });
 });
 
-// Обработка события нажатия на главную кнопку
-Telegram.WebApp.onEvent("mainButtonClicked", function() {
-    tg.sendData(item);
+// Обработка клика главной кнопки
+Telegram.WebApp.onEvent('mainButtonClicked', function() {
+    // Закрываем WebApp и передаем данные в бота
+    tg.close();
+    fetch('/webData', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ item: item })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 });
-
-// Отображение информации о пользователе
-let usercard = document.getElementById("usercard");
-
-let p = document.createElement("p");
-p.innerText = `${tg.initDataUnsafe.user.first_name ?? "Имя"} ${tg.initDataUnsafe.user.last_name ?? "Фамилия"}`;
-
-usercard.appendChild(p);
