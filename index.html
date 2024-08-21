@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Цветочный магазин</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Выберите букет</h1>
-        <div class="flower-card" data-flower-name="Прекрасный букет" data-price="2000" data-description="Красивый букет из роз">
-            <img src="rose.png" alt="Прекрасный букет">
-            <h2>Прекрасный букет - 2000 руб.</h2>
-            <button class="select-flower">Выбрать</button>
+    <h1>Цветочный магазин</h1>
+    <div class="bouquet-container">
+        <div class="bouquet">
+            <img src="https://rose.png" alt="Розы">
+            <h2>Букет из роз</h2>
+            <p>Цена: 1500 руб.</p>
+            <button onclick="orderBouquet('Букет из роз', 1500)">Заказать</button>
         </div>
-        <!-- Дополнительные карточки цветов -->
+        <!-- Добавьте больше букетов по аналогии -->
     </div>
-    
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="app.js"></script>
 </body>
 </html>
