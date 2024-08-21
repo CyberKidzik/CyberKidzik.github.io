@@ -10,6 +10,7 @@ tg.MainButton.color = '#2cab37';
 
 // Переменная для хранения выбранного элемента
 let item = "";
+let quantity = 1; // Пример количества по умолчанию, при необходимости можно изменить
 
 // Функция для обновления состояния главной кнопки
 function updateMainButton(text, value) {
@@ -40,20 +41,6 @@ bouquets.forEach(bouquet => {
 
 // Обработка клика главной кнопки
 Telegram.WebApp.onEvent('mainButtonClicked', function() {
-    // Закрываем WebApp и передаем данные в бота
+    tg.sendData(JSON.stringify({ bouquet: item, quantity: quantity })); // Передача данных в бота
     tg.close();
-    fetch('/webData', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ item: item })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
 });
