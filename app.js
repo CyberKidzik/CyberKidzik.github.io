@@ -1,18 +1,13 @@
-// Инициализация объекта Telegram WebApp
 let tg = window.Telegram.WebApp;
 
-// Развернем WebApp в полный экран
 tg.expand();
 
-// Настройки главной кнопки
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#2cab37';
 
-// Переменная для хранения выбранного элемента
 let item = "";
-let quantity = 1; // Пример количества по умолчанию, при необходимости можно изменить
+let quantity = 1;
 
-// Функция для обновления состояния главной кнопки
 function updateMainButton(text, value) {
     if (tg.MainButton.isVisible) {
         tg.MainButton.hide();
@@ -23,7 +18,6 @@ function updateMainButton(text, value) {
     }
 }
 
-// Массив с информацией о букетах
 const bouquets = [
     { id: "btn1", text: "Вы выбрали Букет Роз!", item: "Букет Роз" },
     { id: "btn2", text: "Вы выбрали Весенний Букет!", item: "Весенний Букет" },
@@ -39,8 +33,7 @@ bouquets.forEach(bouquet => {
     });
 });
 
-// Обработка клика главной кнопки
 Telegram.WebApp.onEvent('mainButtonClicked', function() {
-    tg.sendData(JSON.stringify({ bouquet: item, quantity: quantity })); // Передача данных в бота
+    tg.sendData(JSON.stringify({ bouquet: item, quantity: quantity }));
     tg.close();
 });
