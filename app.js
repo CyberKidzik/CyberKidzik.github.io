@@ -1,42 +1,15 @@
-let tg = window.Telegram.WebApp;
+document.addEventListener("DOMContentLoaded", function () {
+    const flowerCards = document.querySelectorAll(".flower-card");
 
-tg.expand();
+    flowerCards.forEach(card => {
+        card.querySelector(".select-flower").addEventListener("click", function () {
+            const flowerName = card.getAttribute("data-flower-name");
+            const price = card.getAttribute("data-price");
+            const description = card.getAttribute("data-description");
 
-tg.MainButton.textColor = '#FFFFFF';
-tg.MainButton.color = '#2cab37';
+            const data = { flower_name: flowerName, price: price, description: description };
 
-let selectedBouquet = "";
-let quantity = 1;
-
-function selectBouquet(bouquet) {
-  selectedBouquet = bouquet;
-  tg.MainButton.setText(`Вы выбрали: ${bouquet} (1)`);
-  tg.MainButton.show();
-}
-
-function increaseQuantity() {
-  quantity++;
-  document.getElementById('quantity').textContent = quantity;
-  tg.MainButton.setText(`Вы выбрали: ${selectedBouquet} (${quantity})`);
-}
-
-function decreaseQuantity() {
-  if (quantity > 1) {
-    quantity--;
-    document.getElementById('quantity').textContent = quantity;
-    tg.MainButton.setText(`Вы выбрали: ${selectedBouquet} (${quantity})`);
-  }
-}
-
-function sendData() {
-  const data = {
-    bouquet: selectedBouquet,
-    quantity: quantity
-  };
-  tg.sendData(JSON.stringify(data));
-  tg.close();
-}
-
-tg.MainButton.onClickHandler(() => {
-  sendData();
+            Telegram.WebApp.sendData(JSON.stringify(data));  // Отправка данных в Telegram WebApp
+        });
+    });
 });
