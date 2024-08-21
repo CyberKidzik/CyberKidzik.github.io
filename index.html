@@ -3,46 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Букеты</title>
-    <style>
-        .bouquet {
-            text-align: center;
-            margin: 20px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-    <script>
-        function orderBouquet(bouquetName, price) {
-            const data = {
-                bouquet_name: bouquetName,
-                price: price
-            };
-            // Проверка на наличие объекта Telegram.WebApp
-            if (typeof Telegram !== 'undefined' && Telegram.WebApp && typeof Telegram.WebApp.sendData === 'function') {
-                Telegram.WebApp.sendData(JSON.stringify(data));
-            } else {
-                console.error("Telegram WebApp API не доступен.");
-            }
-        }
-    </script>
+    <title>Цветочный магазин</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="bouquet">
-        <img src="rose.png" alt="Розы" style="width:100px; height:100px;">
-        <h2>Букет из роз</h2>
-        <p>Цена: 1500 руб.</p>
-        <button onclick="orderBouquet('Букет из роз', 1500)">Заказать</button>
+    <h1>Цветочный магазин</h1>
+    <div class="bouquet-container">
+        <div class="bouquet">
+            <img src="rose.png" alt="Розы">
+            <h2>Букет из роз</h2>
+            <p>Цена: 1500 руб.</p>
+            <button onclick="orderBouquet('Букет из роз', 1500)">Заказать</button>
+        </div>
+        <!-- Добавьте больше букетов по аналогии -->
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
