@@ -1,12 +1,16 @@
 let tg = window.Telegram.WebApp;
 
+// Развернем WebApp в полный экран
 tg.expand();
 
+// Настройки главной кнопки
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#2cab37';
 
+// Переменная для хранения выбранного элемента
 let item = "";
 
+// Функция для обновления состояния главной кнопки
 function updateMainButton(text, value) {
     if (tg.MainButton.isVisible) {
         tg.MainButton.hide();
@@ -17,6 +21,7 @@ function updateMainButton(text, value) {
     }
 }
 
+// Массив с информацией о букетах
 const bouquets = [
     { id: "btn1", text: "Вы выбрали Букет Роз!", item: "Букет Роз" },
     { id: "btn2", text: "Вы выбрали Весенний Букет!", item: "Весенний Букет" },
@@ -26,6 +31,7 @@ const bouquets = [
     { id: "btn6", text: "Вы выбрали Зимний Букет!", item: "Зимний Букет" }
 ];
 
+// Добавление обработчиков событий для кнопок
 bouquets.forEach(bouquet => {
     let btn = document.getElementById(bouquet.id);
     btn.addEventListener("click", function() {
@@ -33,13 +39,15 @@ bouquets.forEach(bouquet => {
     });
 });
 
+// Обработка события нажатия на главную кнопку
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     tg.sendData(item);
 });
 
+// Отображение информации о пользователе
 let usercard = document.getElementById("usercard");
 
 let p = document.createElement("p");
-p.innerText = `${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`;
+p.innerText = `${tg.initDataUnsafe.user.first_name ?? "Имя"} ${tg.initDataUnsafe.user.last_name ?? "Фамилия"}`;
 
 usercard.appendChild(p);
