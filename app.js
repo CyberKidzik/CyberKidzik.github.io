@@ -5,3 +5,6 @@ function orderBouquet(bouquetName, price) {
     };
     Telegram.WebApp.sendData(JSON.stringify(data));
 }
+
+// Инициализация WebApp
+Telegram.WebApp.ready();
