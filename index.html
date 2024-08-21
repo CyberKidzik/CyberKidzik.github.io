@@ -1,45 +1,67 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Цветочные Букеты</title>
+    <title>Выбор букета</title>
 </head>
 <body>
-    <div class="container">
-        <div class="inner">
-            <div class="item">
-                <img src="rose.png" alt="Букет Роз" class="img">
-                <button class="btn" id="btn1">Букет Роз</button>
-            </div>
-            <div class="item">
-                <img src="spring.png" alt="Весенний Букет" class="img">
-                <button class="btn" id="btn2">Весенний Букет</button>
-            </div>
-            <div class="item">
-                <img src="daisy.png" alt="Ромашковый Букет" class="img">
-                <button class="btn" id="btn3">Ромашковый Букет</button>
-            </div>
-            <div class="item">
-                <img src="summer.png" alt="Летний Букет" class="img">
-                <button class="btn" id="btn4">Летний Букет</button>
-            </div>
-            <div class="item">
-                <img src="autumn.png" alt="Осенний Букет" class="img">
-                <button class="btn" id="btn5">Осенний Букет</button>
-            </div>
-            <div class="item">
-                <img src="winter.png" alt="Зимний Букет" class="img">
-                <button class="btn" id="btn6">Зимний Букет</button>
-            </div>
-        </div>
-    </div>
-    <div class="usercard" id="usercard">
-        <p>Пользователь:</p>
-    </div>
+    <!-- Предполагается, что у вас есть кнопки с этими id -->
+    <button id="btn1">Букет Роз</button>
+    <button id="btn2">Весенний Букет</button>
+    <button id="btn3">Ромашковый Букет</button>
+    <button id="btn4">Летний Букет</button>
+    <button id="btn5">Осенний Букет</button>
+    <button id="btn6">Зимний Букет</button>
 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="app.js"></script>
+    <script>
+        // Инициализация объекта Telegram WebApp
+        let tg = window.Telegram.WebApp;
+
+        // Развернем WebApp в полный экран
+        tg.expand();
+
+        // Настройки главной кнопки
+        tg.MainButton.textColor = '#FFFFFF';
+        tg.MainButton.color = '#2cab37';
+
+        // Переменная для хранения выбранного элемента
+        let item = "";
+        let quantity = 1; // Пример количества по умолчанию, при необходимости можно изменить
+
+        // Функция для обновления состояния главной кнопки
+        function updateMainButton(text, value) {
+            tg.MainButton.setText(text);
+            item = value;
+            tg.MainButton.show();
+        }
+
+        // Массив с информацией о букетах
+        const bouquets = [
+            { id: "btn1", text: "Вы выбрали Букет Роз!", item: "Букет Роз" },
+            { id: "btn2", text: "Вы выбрали Весенний Букет!", item: "Весенний Букет" },
+            { id: "btn3", text: "Вы выбрали Ромашковый Букет!", item: "Ромашковый Букет" },
+            { id: "btn4", text: "Вы выбрали Летний Букет!", item: "Летний Букет" },
+            { id: "btn5", text: "Вы выбрали Осенний Букет!", item: "Осенний Букет" },
+            { id: "btn6", text: "Вы выбрали Зимний Букет!", item: "Зимний Букет" }
+        ];
+
+        bouquets.forEach(bouquet => {
+            document.getElementById(bouquet.id).addEventListener("click", function() {
+                updateMainButton(bouquet.text, bouquet.item);
+            });
+        });
+
+        // Обработка клика главной кнопки
+        tg.MainButton.onClick = function() {
+            tg.sendData(JSON.stringify({ bouquet: item, quantity: quantity })); // Передача данных в бота
+            tg.close();
+        };
+
+        // Функция для скрытия кнопки после первой отправки данных
+        tg.onEvent('mainButtonClicked', function() {
+            tg.MainButton.hide();
+        });
+    </script>
 </body>
 </html>
