@@ -326,4 +326,10 @@ footer ul li a {
         display: block;
         margin: 10px 0;
     }
+
+    .contact-buttons .button {
+        display: inline-block;
+        width: 45%;
+        margin: 10px auto;
+    }
 }
