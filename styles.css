@@ -17,7 +17,7 @@ body {
 header {
     background: #1a1a1a;
     color: #fff;
-    padding: 20px 0;
+    padding: 10px 0;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
@@ -27,7 +27,7 @@ header {
 
 header .logo {
     display: inline-block;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
 }
@@ -49,26 +49,26 @@ header nav ul li {
 header nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* Кнопки в шапке */
 .contact-buttons {
-    float: right;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 }
 
 .contact-buttons .button {
     background: transparent;
     color: #fff;
     border: 1px solid;
-    padding: 10px;
-    border-radius: 25px;
+    padding: 7px 10px;
+    border-radius: 20px;
     margin: 0 5px;
     text-align: center;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 14px;
     transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 
@@ -311,15 +311,27 @@ footer ul li a {
     font-size: 16px;
 }
 
+/* Мобильная адаптация */
 @media (max-width: 768px) {
-    .benefit-item {
-        width: 100%;
+    header {
+        text-align: center;
+        padding: 5px 0;
     }
 
-    .contact-buttons {
+    header .logo {
         display: block;
-        text-align: center;
-        float: none;
+        margin: 0 auto;
+        font-size: 20px;
+    }
+
+    header nav {
+        display: block;
+        margin-top: 10px;
+    }
+
+    header nav ul {
+        padding: 0;
+        margin: 0;
     }
 
     header nav ul li {
@@ -327,9 +339,29 @@ footer ul li a {
         margin: 10px 0;
     }
 
+    header nav ul li a {
+        font-size: 14px;
+    }
+
+    .contact-buttons {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+    }
+
     .contact-buttons .button {
         display: inline-block;
         width: 45%;
         margin: 10px auto;
+        padding: 7px 10px;
+        font-size: 12px;
     }
+
+    .benefit-item {
+        width: 100%;
+    }
+
+    .banner h1 {
+        font-size: 32px;
+    }    
 }
