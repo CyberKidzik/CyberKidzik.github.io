@@ -3,20 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Цветочный магазин</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CyberConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Цветочный магазин</h1>
-    <div class="bouquet-container">
-        <div class="bouquet">
-            <img src="rose.png" alt="Розы">
-            <h2>Букет из роз</h2>
-            <p>Цена: 1500 руб.</p>
-            <button onclick="orderBouquet('Букет из роз', 1500)">Заказать</button>
+    <header>
+        <div class="container">
+            <div class="logo">CyberConnect 🚀</div>
+            <nav>
+                <ul>
+                    <li><a href="#how-it-works">Как подключить интернет</a></li>
+                    <li><a href="#pricing">Тарифы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="contact-buttons">
+                <a href="https://wa.me/89964006166" class="button whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://t.me/cyberkidzik" class="button telegram"><i class="fab fa-telegram-plane"></i> Telegram</a>
+            </div>
         </div>
-        <!-- Добавьте больше букетов по аналогии -->
-    </div>
-    <script src="app.js"></script>
+    </header>
+
+    <section class="banner">
+        <div class="container">
+            <h1>Высокоскоростной интернет для вашего офиса — только за 4000 руб./мес! ⚡</h1>
+            <a href="#" class="button primary">Подключиться сейчас</a>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <h2>Наши преимущества 🌟</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-wifi"></i>
+                    <p>Доступ в любом месте с мобильной связью 📶</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <p>Скорость от 100 Мбит/с всего за 4000 руб. 🚀</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>Стабильность и надёжность 🔒</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-headset"></i>
+                    <p>Поддержка 24/7 🎧</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2>Как это работает 💡</h2>
+            <p>Просто подключайтесь и наслаждайтесь быстрым интернетом 😎</p>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Тарифы 💰</h2>
+            <table>
+                <tr>
+                    <th>Скорость</th>
+                    <th>Цена</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>100 Мбит/с</td>
+                    <td>4000 рублей/месяц</td>
+                    <td><a href="#" class="button primary">Подключить 💻</a></td>
+                </tr>
+                <!-- Добавьте дополнительные тарифы по мере необходимости -->
+            </table>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Отзывы клиентов 🗣️</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial">
+                    <p>"Отличный интернет, очень доволен!" - Иван Иванов 🙌</p>
+                </div>
+                <div class="testimonial">
+                    <p>"Высокая скорость и стабильное соединение." - Ольга Петрова 👍</p>
+                </div>
+                <!-- Добавьте дополнительные отзывы по мере необходимости -->
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2>Частые вопросы ❓</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <p><strong>Вопрос 1:</strong> Как подключить интернет?</p>
+                    <p><strong>Ответ:</strong> Просто оставьте заявку на сайте или свяжитесь с нашей поддержкой 📞.</p>
+                </div>
+                <div class="faq-item">
+                    <p><strong>Вопрос 2:</strong> Какие дополнительные расходы несем?</p>
+                    <p><strong>Ответ:</strong> Никакие, вы просто платите 4000 рублей в месяц 💸.</p>
+                </div>
+                <div class="faq-item">
+                    <p><strong>Вопрос 3:</strong> Будут ли сверлить стены и протягивать кабель?</p>
+                    <p><strong>Ответ:</strong> Нет, мы не будем сверлить, нашему устройству нужен только доступ к розетке 🔌.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <h2>Контакты 📞</h2>
+            <p><strong>Адрес:</strong> Улица Примерная, 123, город Пример 🏠</p>
+            <p><strong>Телефон:</strong> +7 (123) 456-78-90 📱</p>
+            <p><strong>Email:</strong> info@example.com 📧</p>
+            <div class="socials">
+                <a href="https://wa.me/89964006166" class="button whatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/cyberkidzik" class="button telegram"><i class="fab fa-telegram-plane"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 CyberConnect. Все права защищены.</p>
+            <ul>
+                <li><a href="#">Политика конфиденциальности</a></li>
+                <li><a href="#">Пользовательское соглашение</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
