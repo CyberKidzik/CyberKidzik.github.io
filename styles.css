@@ -12,7 +12,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -22,23 +23,37 @@ header {
     color: #fff;
     padding: 10px 0;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
     width: 100%;
+    position: fixed;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header .logo {
     font-size: 24px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
+    margin-right: 20px;
+}
+
+header nav {
+    flex-grow: 1;
 }
 
 header nav ul {
     list-style: none;
     padding: 0;
     display: flex;
+    justify-content: flex-end; /* Выравнивание по правой стороне */
     margin: 0;
+    align-items: center;
 }
 
 header nav ul li {
@@ -51,13 +66,16 @@ header nav ul li a {
     font-size: 16px;
 }
 
-/* Кнопки в шапке */
-.contact-buttons {
+header a {
+    scroll-margin-top: 70px; /* Высота шапки + небольшой отступ */
+}
+
+header .contact-buttons {
     display: flex;
     align-items: center;
 }
 
-.contact-buttons .button {
+header .contact-buttons .button {
     background: transparent;
     color: #fff;
     border: 1px solid;
@@ -68,31 +86,30 @@ header nav ul li a {
     text-decoration: none;
     font-size: 14px;
     transition: background 0.3s, color 0.3s, border-color 0.3s;
-    max-width: 180px;
 }
 
-.contact-buttons .whatsapp {
+header .contact-buttons .whatsapp {
     border-color: #25D366;
 }
 
-.contact-buttons .whatsapp i {
+header .contact-buttons .whatsapp i {
     color: #25D366;
 }
 
-.contact-buttons .whatsapp:hover {
+header .contact-buttons .whatsapp:hover {
     background: #25D366;
     color: #fff;
 }
 
-.contact-buttons .telegram {
+header .contact-buttons .telegram {
     border-color: #0088cc;
 }
 
-.contact-buttons .telegram i {
+header .contact-buttons .telegram i {
     color: #0088cc;
 }
 
-.contact-buttons .telegram:hover {
+header .contact-buttons .telegram:hover {
     background: #0088cc;
     color: #fff;
 }
@@ -107,78 +124,7 @@ header nav ul li a {
     position: relative;
     overflow: hidden;
     padding-top: 60px;
-}
-
-.banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, transparent, #1a1a1a), url('https://images.unsplash.com/photo-1519904985522-f150f2a01261?ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80') no-repeat center center/cover;
-    opacity: 0.7;
-    z-index: -1;
-}
-
-.banner .colored-balls {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.banner .ball {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.6;
-    filter: blur(50px);
-    animation: float 20s infinite ease-in-out;
-}
-
-/* Настройки анимации всплывающих кругов */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-.banner .ball:nth-child(1) {
-    width: 300px;
-    height: 300px;
-    background: #50c878;
-    top: 10%;
-    left: 20%;
-}
-
-.banner .ball:nth-child(2) {
-    width: 200px;
-    height: 200px;
-    background: #8e2de2;
-    top: 40%;
-    left: 80%;
-}
-
-.banner .ball:nth-child(3) {
-    width: 250px;
-    height: 250px;
-    background: #ffd700;
-    top: 70%;
-    left: 30%;
-}
-
-.banner .ball:nth-child(4) {
-    width: 150px;
-    height: 150px;
-    background: #ff0000;
-    top: 20%;
-    left: 50%;
+    flex-direction: column;
 }
 
 .banner h1 {
@@ -307,51 +253,4 @@ footer ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
-}
-
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    header nav {
-        margin-top: 10px;
-    }
-
-    header nav ul {
-        padding: 0;
-        margin: 0;
-        flex-direction: column;
-    }
-
-    header nav ul li {
-        margin: 10px 0;
-    }
-
-    .contact-buttons {
-        margin-top: 10px;
-    }
-
-    .contact-buttons .button {
-        display: inline-block;
-        width: calc(100% - 20px);
-        margin: 10px 5px;
-        padding: 7px 10px;
-        font-size: 12px;
-    }
-
-    .benefit-item {
-        width: 100%;
-    }
-
-    .banner h1 {
-        font-size: 32px;
-    }
-}
-
-/* Исправленные отступы для правильной навигации */
-header a {
-    scroll-margin-top: 70px; /* Высота шапки + небольшой отступ */
 }
