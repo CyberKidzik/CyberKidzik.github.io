@@ -11,6 +11,9 @@ body {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Оформление шапки */
@@ -26,23 +29,19 @@ header {
 }
 
 header .logo {
-    display: inline-block;
     font-size: 24px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
 }
 
-header nav {
-    display: inline-block;
-}
-
 header nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    margin: 0;
 }
 
 header nav ul li {
-    display: inline;
     margin: 0 12px;
 }
 
@@ -56,7 +55,6 @@ header nav ul li a {
 .contact-buttons {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
 }
 
 .contact-buttons .button {
@@ -65,11 +63,12 @@ header nav ul li a {
     border: 1px solid;
     padding: 7px 10px;
     border-radius: 20px;
-    margin: 0 5px;
+    margin: 5px;
     text-align: center;
     text-decoration: none;
     font-size: 14px;
     transition: background 0.3s, color 0.3s, border-color 0.3s;
+    max-width: 180px;
 }
 
 .contact-buttons .whatsapp {
@@ -107,6 +106,7 @@ header nav ul li a {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    padding-top: 60px;
 }
 
 .banner::before {
@@ -246,16 +246,14 @@ h2 {
 
 /* Секционные элементы FAQ */
 .faq-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
 }
 
 .faq-item {
-    width: 320px;
     padding: 20px;
     background: #333;
-    margin: 10px;
     border-radius: 15px;
     text-align: left;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -313,46 +311,33 @@ footer ul li a {
 
 /* Мобильная адаптация */
 @media (max-width: 768px) {
-    header {
+    header .container {
+        flex-direction: column;
         text-align: center;
-        padding: 5px 0;
-    }
-
-    header .logo {
-        display: block;
-        margin: 0 auto;
-        font-size: 20px;
     }
 
     header nav {
-        display: block;
         margin-top: 10px;
     }
 
     header nav ul {
         padding: 0;
         margin: 0;
+        flex-direction: column;
     }
 
     header nav ul li {
-        display: block;
         margin: 10px 0;
     }
 
-    header nav ul li a {
-        font-size: 14px;
-    }
-
     .contact-buttons {
-        display: block;
-        text-align: center;
         margin-top: 10px;
     }
 
     .contact-buttons .button {
         display: inline-block;
-        width: 45%;
-        margin: 10px auto;
+        width: calc(100% - 20px);
+        margin: 10px 5px;
         padding: 7px 10px;
         font-size: 12px;
     }
@@ -363,5 +348,10 @@ footer ul li a {
 
     .banner h1 {
         font-size: 32px;
-    }    
+    }
+}
+
+/* Исправленные отступы для правильной навигации */
+header a {
+    scroll-margin-top: 70px; /* Высота шапки + небольшой отступ */
 }
