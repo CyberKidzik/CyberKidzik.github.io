@@ -75,11 +75,12 @@ header .contact-buttons {
     align-items: center;
 }
 
+/* Обновленные стили для кнопок */
 header .contact-buttons .button {
     background: transparent;
     color: #fff;
     border: 1px solid;
-    padding: 7px 10px;
+    padding: 10px 20px; /* Увеличенный padding для размещения текста */
     border-radius: 20px;
     margin: 5px;
     text-align: center;
