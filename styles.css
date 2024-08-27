@@ -27,7 +27,7 @@ header {
     position: fixed;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header .container {
@@ -254,4 +254,67 @@ footer ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
+}
+
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+    }
+
+    header nav ul li {
+        margin: 5px 0;
+    }
+
+    .banner h1 {
+        font-size: 32px;
+        padding: 0 10px;
+    }
+
+    .banner .button.primary {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .benefit-item,
+    .testimonial,
+    .faq-item {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .benefits-grid,
+    .testimonials-slider,
+    .faq-grid {
+        flex-direction: column;
+    }
+
+    .pricing table,
+    .pricing th,
+    .pricing td {
+        display: block;
+        width: 100%;
+    }
+
+    .pricing td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .pricing td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 20px;
+        width: calc(50% - 20px);
+        white-space: nowrap;
+    }
 }
