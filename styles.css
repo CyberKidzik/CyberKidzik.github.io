@@ -9,11 +9,9 @@ body {
 /* Общее оформление контейнера */
 .container {
     width: 90%;
-    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -31,8 +29,7 @@ header {
 }
 
 header .container {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -40,24 +37,20 @@ header .logo {
     font-size: 24px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
-    margin-right: 20px;
-}
-
-header nav {
-    flex-grow: 1;
+    margin-bottom: 10px;
 }
 
 header nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: flex-end; /* Выравнивание по правой стороне */
-    margin: 0;
+    flex-direction: column;
     align-items: center;
+    margin: 0;
 }
 
 header nav ul li {
-    margin: 0 12px;
+    margin: 5px 0;
 }
 
 header nav ul li a {
@@ -72,6 +65,7 @@ header a {
 
 header .contact-buttons {
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -118,18 +112,20 @@ header .contact-buttons .telegram:hover {
 .banner {
     text-align: center;
     background: #1a1a1a;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
     padding-top: 60px;
-    flex-direction: column;
+    padding-bottom: 60px;
 }
 
 .banner h1 {
-    font-size: 48px;
+    font-size: 32px;
+    padding: 0 10px;
     margin-bottom: 20px;
     font-family: 'Roboto', sans-serif;
 }
@@ -138,42 +134,36 @@ header .contact-buttons .telegram:hover {
     background: #fff;
     color: #1a1a1a;
     border: none;
-    padding: 15px 30px;
-    font-size: 18px;
+    padding: 10px 20px;
+    font-size: 16px;
     text-transform: uppercase;
     border-radius: 25px;
 }
 
 .benefits, .how-it-works, .pricing, .testimonials, .faq, .contacts {
-    padding: 60px 0;
+    padding: 30px 0;
     text-align: center;
 }
 
 h2 {
-    font-size: 36px;
+    font-size: 28px;
     margin-bottom: 25px;
     font-family: 'Poppins', sans-serif;
     color: #fff;
 }
 
-.benefits-grid, .testimonials-slider {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.benefit-item {
-    width: 220px;
-    padding: 25px;
+.benefit-item, .testimonial, .faq-item {
+    width: 100%;
+    padding: 20px;
     background: #333;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+    margin-bottom: 20px;
     border-radius: 15px;
     text-align: center;
     transition: transform 0.3s;
 }
 
-.benefit-item:hover {
+.benefit-item:hover, .testimonial:hover, .faq-item:hover {
     transform: translateY(-10px);
 }
 
@@ -183,27 +173,9 @@ h2 {
     color: #8E2DE2;
 }
 
-.testimonial {
-    background: #333;
-    padding: 25px;
-    border-radius: 15px;
-    margin: 10px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Секционные элементы FAQ */
-.faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 20px;
-}
-
-.faq-item {
-    padding: 20px;
-    background: #333;
-    border-radius: 15px;
-    text-align: left;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+.testimonial p,
+.faq-item p {
+    font-size: 16px;
 }
 
 .faq-item strong {
@@ -219,17 +191,27 @@ table {
 
 table th, table td {
     padding: 15px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #555;
-    color: #fff;
 }
 
 table th {
     background: #333;
+    color: #fff;
+}
+
+table td {
+    background: #444;
+    color: #fff;
 }
 
 table tr:hover {
     background: #444;
+}
+
+table td a.button.primary {
+    display: block;
+    margin: 10px 0;
 }
 
 /* Оформление футера */
@@ -254,67 +236,4 @@ footer ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
-}
-
-/* Медиазапросы для мобильных устройств */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        width: 100%;
-    }
-
-    header nav ul li {
-        margin: 5px 0;
-    }
-
-    .banner h1 {
-        font-size: 32px;
-        padding: 0 10px;
-    }
-
-    .banner .button.primary {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-
-    .benefit-item,
-    .testimonial,
-    .faq-item {
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .benefits-grid,
-    .testimonials-slider,
-    .faq-grid {
-        flex-direction: column;
-    }
-
-    .pricing table,
-    .pricing th,
-    .pricing td {
-        display: block;
-        width: 100%;
-    }
-
-    .pricing td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-    }
-
-    .pricing td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 20px;
-        width: calc(50% - 20px);
-        white-space: nowrap;
-    }
 }
