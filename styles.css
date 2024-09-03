@@ -8,7 +8,8 @@ body {
 
 /* Общее оформление контейнера */
 .container {
-    width: 90%;
+    width: 100%;
+    padding: 0 15px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -20,7 +21,6 @@ header {
     background: #1a1a1a;
     color: #fff;
     padding: 10px 0;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     position: fixed;
     top: 0;
@@ -29,53 +29,32 @@ header {
 }
 
 header .container {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 }
 
 header .logo {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 10px;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-}
-
-header nav ul li {
-    margin: 5px 0;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-header a {
-    scroll-margin-top: 70px; /* Высота шапки + небольшой отступ */
+header nav {
+    display: none; /* Скрыть навигацию */
 }
 
 header .contact-buttons {
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
-/* Обновленные стили для кнопок */
 header .contact-buttons .button {
     background: transparent;
     color: #fff;
     border: 1px solid;
-    padding: 10px 20px; /* Увеличенный padding для размещения текста */
-    border-radius: 20px;
+    padding: 10px;
+    border-radius: 50%;
     margin: 5px;
     text-align: center;
     text-decoration: none;
@@ -109,55 +88,60 @@ header .contact-buttons .telegram:hover {
     color: #fff;
 }
 
+/* Основная баннерная секция */
 .banner {
     text-align: center;
     background: #1a1a1a;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
     padding-top: 60px;
-    padding-bottom: 60px;
+    flex-direction: column;
 }
 
 .banner h1 {
-    font-size: 32px;
-    padding: 0 10px;
+    font-size: 24px;
     margin-bottom: 20px;
     font-family: 'Roboto', sans-serif;
+    padding: 0 15px;
 }
 
 .banner .button.primary {
     background: #fff;
     color: #1a1a1a;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 16px;
     text-transform: uppercase;
     border-radius: 25px;
 }
 
 .benefits, .how-it-works, .pricing, .testimonials, .faq, .contacts {
-    padding: 30px 0;
+    padding: 40px 0;
     text-align: center;
 }
 
 h2 {
-    font-size: 28px;
-    margin-bottom: 25px;
+    font-size: 20px;
+    margin-bottom: 20px;
     font-family: 'Poppins', sans-serif;
     color: #fff;
 }
 
+.benefits-grid, .testimonials-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .benefit-item, .testimonial, .faq-item {
     width: 100%;
+    max-width: 300px;
     padding: 20px;
     background: #333;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin: 10px 0;
     border-radius: 15px;
     text-align: center;
     transition: transform 0.3s;
@@ -168,18 +152,16 @@ h2 {
 }
 
 .benefit-item i {
-    font-size: 32px;
+    font-size: 24px;
     margin-bottom: 12px;
     color: #8E2DE2;
 }
 
-.testimonial p,
-.faq-item p {
-    font-size: 16px;
-}
-
-.faq-item strong {
-    color: #8E2DE2;
+/* Секционные элементы FAQ */
+.faq-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Таблица тарифов */
@@ -190,28 +172,18 @@ table {
 }
 
 table th, table td {
-    padding: 15px;
-    text-align: center;
+    padding: 10px;
+    text-align: left;
     border-bottom: 1px solid #555;
+    color: #fff;
 }
 
 table th {
     background: #333;
-    color: #fff;
-}
-
-table td {
-    background: #444;
-    color: #fff;
 }
 
 table tr:hover {
     background: #444;
-}
-
-table td a.button.primary {
-    display: block;
-    margin: 10px 0;
 }
 
 /* Оформление футера */
@@ -235,5 +207,32 @@ footer ul li {
 footer ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
+}
+
+/* Адаптация для кнопок и текста */
+@media (max-width: 768px) {
+    .banner h1 {
+        font-size: 18px;
+    }
+    
+    .banner .button.primary {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    .contact-buttons .button {
+        font-size: 12px;
+        padding: 8px;
+        margin: 0 5px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .benefit-item, .testimonial, .faq-item {
+        max-width: none;
+        padding: 15px;
+    }
 }
